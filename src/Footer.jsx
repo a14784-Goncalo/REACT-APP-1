@@ -1,11 +1,10 @@
+import "./Footer.css"
 
 function Footer() {
     return (
-        <div>
-            <div style={{ textAlign: 'center', width: '100%' }}>
-                <a href="/home">Home</a>
-                <a href="/contactos">Contactos</a>
-            </div>
+        <div className="footer-center">
+            <a href='/home'>HOME</a>
+            <a href='/contactos'>CONTACTOS</a>
         </div>
     )
 }

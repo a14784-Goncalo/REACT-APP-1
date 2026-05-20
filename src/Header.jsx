@@ -1,17 +1,15 @@
-import viteLogo from './assets/vite.svg'
+import "./Header.css"
+import heroImg from './assets/hero.png'
 
 function Header() {
     return (
         <div>
-            <div>
-                <img src={viteLogo} className="vite" alt="Vite logo" align="left" />
-            </div>
-            <div style={{ textAlign: 'center', width: '100%' }}>
-                <a href='/home'>Home</a>
-            </div>
-            <div style={{ textAlign: 'right', width: '100%' }}>
-                <a href='/contacto'>Contacto</a>
-            </div>
+            <logo><img src={heroImg} alt="Hero Vite" /></logo>
+            <nav>
+                <a href='/home'>HOME</a>
+                <a href='/contactos'>CONTACTOS</a>
+            </nav>
+            <div className="clear"></div>
         </div>
     )
 }
