@@ -25,6 +25,7 @@ function Formulario() {
         setFormData({ nome: '', email: '', telefone: '', morada: '', codigoPostal:'', mensagem: '' });
         setDadosSubmetidos(null);
     }
+    
     return (
         <div className="mt-4">
                 <form onSubmit={handleSubmit}>

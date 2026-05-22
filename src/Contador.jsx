@@ -43,7 +43,7 @@ function Contador() {
                 Reset
             </button>
 
-            <button className="btn btn-success" onClick={aumentarDez}>
+            <button className="btn btn-success mr-2" onClick={aumentarDez}>
                 +10
             </button>
 
