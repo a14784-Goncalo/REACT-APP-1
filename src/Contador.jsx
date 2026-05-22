@@ -22,6 +22,10 @@ function Contador() {
         setContagem(contagem+10);
     }
 
+    function sixSeven() {
+        setContagem(contagem+67);
+    }
+
     return (
         <div className="text-center mt-4">
             <h3>Contador: {contagem}</h3>
@@ -41,6 +45,10 @@ function Contador() {
 
             <button className="btn btn-success" onClick={aumentarDez}>
                 +10
+            </button>
+
+            <button className="btn btn-warning" onClick={sixSeven}>
+                67
             </button>
         </div>
     );

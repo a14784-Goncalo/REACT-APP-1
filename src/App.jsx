@@ -7,6 +7,7 @@ import Mensagem from './Mensagem';
 import Alerta from './Alerta';
 import Contador from './Contador';
 import Formulario from './Formulario';
+import Tarefas from './Tarefas';
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
 
       <h1 className="text-center">Formulario</h1>
       <Formulario></Formulario>
+
+      <h1 className="text-center">Tarefas</h1>
+      <Tarefas></Tarefas>
 
     </div>
   );
