@@ -4,7 +4,9 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Mensagem from './Mensagem';
-import Alerta from './Alerta'
+import Alerta from './Alerta';
+import Contador from './Contador';
+import Formulario from './Formulario';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         Clica-me!
       </button>
 
+      <Contador></Contador>
+
       <h1 className="text-center">Componentes e Props</h1>
       {/* Cada componente recebe props diferentes */}
       <Mensagem mytext="Bem-vindo à tua primeira aplicação React!" />
@@ -31,6 +35,9 @@ function App() {
       <Alerta tipo="success" texto="Este é um alerta de sucesso" />
       <Alerta tipo="warning" texto="Este é um alerta de aviso!" />
       <Alerta tipo="danger" texto="Este é um alerta de erro!" />
+
+      <h1 className="text-center">Formulario</h1>
+      <Formulario></Formulario>
 
     </div>
   );
