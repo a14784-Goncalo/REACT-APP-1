@@ -48,6 +48,15 @@ function Tarefas() {
         setDadosSubmetidos(null);
     }
 
+    function eliminarFuncao(id) {
+        const tarefasAtualizadas = tarefas.filter(tarefa => tarefa.id !== id);
+        setTarefas(tarefasAtualizadas);
+    }
+
+    function limparTarefa() {
+        setTarefas([]);
+    }
+
     return (
         <div className="mt-4 row">
 
@@ -79,8 +88,13 @@ function Tarefas() {
                     <button type="button" className="btn btn-outline-secondary mr-2"
                         onClick={limparFormulario}>Limpar</button>
 
-                    <button type="button" className="btn btn-outline-secondary"
+                    <button type="button" className="btn btn-outline-secondary mr-2"
                         onClick={newTarefa}>Nova Tarefa</button>
+
+                    <button type="button" className="btn btn-outline-secondary"
+                        onClick={limparTarefa}>Limpar Tarefa</button>
+
+
 
                 </form>
 
@@ -105,6 +119,7 @@ function Tarefas() {
                             <h5>{tarefa.titulo}</h5>
                             <p>{tarefa.data}</p>
                             <p>{tarefa.descricao}</p>
+                            <button className="btn btn-danger btn-sm" onClick={() => eliminarFuncao(tarefa.id)}>Eliminar</button>
                         </li>
                     ))}
                 </ul> 
