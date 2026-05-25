@@ -8,6 +8,7 @@ import Alerta from './Alerta';
 import Contador from './Contador';
 import Formulario from './Formulario';
 import Tarefas from './Tarefas';
+import Notas from './Notas';
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
 
       <h1 className="text-center">Tarefas</h1>
       <Tarefas></Tarefas>
+
+      <h1 className="text-center">Notas</h1>
+      <Notas></Notas>
 
     </div>
   );
