@@ -6,21 +6,44 @@ function Notas() {
         disciplina: '',
         notasTestes: '',
         notasTrabalhos: '',
-        notasAtitudes: ''
+        notasAtitudes: '',
+        percentagemTestes: '',
+        percentagemTrabalhos: '',
+        percentagemAtitudes: ''
     });
 
+    const [mediaFinal, setMediaFinal] = useState(null);
+
     function calcularMedia() {
-        const mediaTestes = parseFloat(formData.notasTestes) || 0;
-        const mediaTrabalhos = parseFloat(formData.notasTrabalhos) || 0;
-        const mediaAtitudes = parseFloat(formData.notasAtitudes) || 0;
+        const mediaTestes = parseFloat(formData.notasTestes);
+        const mediaTrabalhos = parseFloat(formData.notasTrabalhos);
+        const mediaAtitudes = parseFloat(formData.notasAtitudes);
 
-        const percentagemTestes = parseFloat(formData.percentagemTestes) || 0;
-        const percentagemTrabalhos = parseFloat(formData.percentagemTrabalhos) || 0;
-        const percentagemAtitudes = parseFloat(formData.percentagemAtitudes) || 0;
+        const percentagemTestes = parseFloat(formData.percentagemTestes);
+        const percentagemTrabalhos = parseFloat(formData.percentagemTrabalhos);
+        const percentagemAtitudes = parseFloat(formData.percentagemAtitudes);
 
-        const mediaFinal = (mediaTestes * (percentagemTestes / 100)) +
+        const resultado =
+            (mediaTestes * (percentagemTestes / 100)) +
             (mediaTrabalhos * (percentagemTrabalhos / 100)) +
             (mediaAtitudes * (percentagemAtitudes / 100));
+
+        setMediaFinal(resultado.toFixed(2));
+    }
+
+    function limparNotas() {
+        setFormData({
+            nome: '',
+            disciplina: '',
+            notasTestes: '',
+            notasTrabalhos: '',
+            notasAtitudes: '',
+            percentagemTestes: '',
+            percentagemTrabalhos: '',
+            percentagemAtitudes: ''
+        });
+
+        setMediaFinal(null);
     }
 
     return (
@@ -46,15 +69,15 @@ function Notas() {
                 <div className="form-group col-3">
 
                     <label>Notas dos Testes:</label>
-                    <input type="number" className="form-control" value={formData.notasTestes} max={(20)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.notasTestes} max={(20)} min={(0)} onChange={(e) =>
                         setFormData({ ...formData, notasTestes: e.target.value })} required />
 
                     <label>Notas dos Trabalhos:</label>
-                    <input type="number" className="form-control" value={formData.notasTrabalhos} max={(20)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.notasTrabalhos} max={(20)} min={(0)} onChange={(e) =>
                         setFormData({ ...formData, notasTrabalhos: e.target.value })} required />
 
                     <label>Notas dos Atitudes:</label>
-                    <input type="number" className="form-control" value={formData.notasAtitudes} max={(20)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.notasAtitudes} max={(20)} min={(0)} onChange={(e) =>
                         setFormData({ ...formData, notasAtitudes: e.target.value })} required />
 
                 </div>
@@ -62,30 +85,39 @@ function Notas() {
                 <div className="form-group col-3">
 
                     <label>(%)Testes: </label>
-                    <input type="number" className="form-control" value={formData.percentagemTestes} max={(100)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.percentagemTestes} max={(40)} min={(0)} onChange={(e) =>
                         setFormData({ ...formData, percentagemTestes: e.target.value })} required />
 
                     <label>(%)Trabalhos: </label>
-                    <input type="number" className="form-control" value={formData.percentagemTrabalhos} max={(100)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.percentagemTrabalhos} max={(40)} min={(0)} onChange={(e) =>
                         setFormData({ ...formData, percentagemTrabalhos: e.target.value })} required />
 
                     <label>(%)Atitudes: </label>
-                    <input type="number" className="form-control" value={formData.percentagemAtitudes} max={(100)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.percentagemAtitudes} max={(20)} min={(0)} onChange={(e) =>
                         setFormData({ ...formData, percentagemAtitudes: e.target.value })} required />
 
                 </div>
 
             </div>
 
+            <div className="row col-6">
+                <button className="btn btn-success mr-2" onClick={calcularMedia}>Calcular</button>
+                <button className="btn btn-warning" onClick={limparNotas}>Limpar</button>
+            </div>
             <div>
-                <button className="btn btn-success" onClick={calcularMedia}>Calcular</button>
-                {calcularMedia >= 9.5 && (
-                    <p>Aluno Aprovado</p>
-                )}
-                {calcularMedia < 9.5 && (
-                    <p>Aluno Reprovado</p>
-                )}
+                <h1 className="text-center">
+                    {parseFloat(mediaFinal) >= 9.5 &&
+                        <p className="text-success text-center">
+                            Aluno Aprovado
+                        </p>
+                    }
 
+                    {parseFloat(mediaFinal) < 9.5 &&
+                        <p className="text-danger text-center">
+                            Aluno Reprovado
+                        </p>
+                    }
+                </h1>
             </div>
 
         </div>
