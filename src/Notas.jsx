@@ -69,15 +69,16 @@ function Notas() {
                 <div className="form-group col-3">
 
                     <label>Notas dos Testes:</label>
-                    <input type="number" className="form-control" value={formData.notasTestes} max={(20)} min={(0)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.notasTestes} max={(20)} min={(0)} step={(0.1)} onChange={(e) =>
                         setFormData({ ...formData, notasTestes: e.target.value })} required />
 
                     <label>Notas dos Trabalhos:</label>
-                    <input type="number" className="form-control" value={formData.notasTrabalhos} max={(20)} min={(0)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.notasTrabalhos} max={(20)} min={(0)} step={(0.1)} onChange={(e) =>
                         setFormData({ ...formData, notasTrabalhos: e.target.value })} required />
 
                     <label>Notas dos Atitudes:</label>
-                    <input type="number" className="form-control" value={formData.notasAtitudes} max={(20)} min={(0)} onChange={(e) =>
+                    <input type="number" className="form-control" value={formData.notasAtitudes} max={(20)} min={(0)} step={(0.1)}
+                     onChange={(e) =>
                         setFormData({ ...formData, notasAtitudes: e.target.value })} required />
 
                 </div>
@@ -117,6 +118,7 @@ function Notas() {
                             Aluno Reprovado
                         </p>
                     }
+                    Média Final: {mediaFinal}
                 </h1>
             </div>
 
